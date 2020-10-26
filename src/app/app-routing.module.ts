@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-export const ROUTES: Routes = [
+export const routes: Routes = [
     { path: '**', redirectTo: 'folder/inbox' }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(ROUTES, { enableTracing: true })],
+    declarations: [],
+    imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
 export class AppRoutingModule {

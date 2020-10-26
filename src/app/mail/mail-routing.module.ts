@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MailFolderComponent } from './containers/mail-folder/mail-folder.component';
 
-const ROUTES: Routes = [
+export const routes: Routes = [
     { path: 'folder/:name', component: MailFolderComponent }
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(ROUTES)],
+    imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
 export class MailRoutingModule { }
