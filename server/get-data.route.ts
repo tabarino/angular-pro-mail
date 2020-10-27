@@ -1,23 +1,16 @@
 import { Request, Response } from 'express';
-import { BRANCHES, CART, PRODUCTS } from './db-data';
+import { MESSAGES } from './db-data';
 
-export function getCart(req: Request, res: Response) {
-    res.status(200).json({ payload: Object.values(CART) });
-}
-
-export function getProducts(req: Request, res: Response) {
-    res.status(200).json({ payload: Object.values(PRODUCTS) });
-}
-
-export function getBranches(req: Request, res: Response) {
-    res.status(200).json({ payload: Object.values(BRANCHES) });
-}
-
-export function getBranchById(req: Request, res: Response) {
+export function getMessages(req: Request, res: Response) {
     const queryParams = req.query;
-    const branchId = queryParams.id;
-    const branches: any = Object.values(BRANCHES);
-    const branch = branches.find(searchBranch => searchBranch.id == branchId);
+    const folder = queryParams.folder;
+    const messages = Object.values(MESSAGES);
 
-    res.status(200).json(branch);
+    if (folder) {
+        // @ts-ignore
+        const folderMessages = messages.filter(searchMessages => searchMessages.folder == folder);
+        res.status(200).json({ payload: folderMessages });
+    } else {
+        res.status(200).json({ payload: Object.values(MESSAGES) });
+    }
 }
