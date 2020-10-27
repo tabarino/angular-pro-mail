@@ -1,3 +1,6 @@
 <div class="mail">
-    <router-outlet></router-outlet>
+    <router-outlet
+        (activate)="onActivate($event)"
+        (deactivate)="OnDeactivate($event)">
+    </router-outlet>
 </div>
