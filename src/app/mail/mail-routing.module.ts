@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MailFolderComponent } from './containers/mail-folder/mail-folder.component';
 import { MailFolderResolve } from './containers/mail-folder/mail-folder.resolve';
+import { MailViewComponent } from './components/mail-view/mail-view.component';
 
 export const routes: Routes = [
     {
@@ -11,6 +12,10 @@ export const routes: Routes = [
         resolve: {
             messages: MailFolderResolve
         }
+    }, {
+        path: 'message/:id',
+        component: MailViewComponent,
+        outlet: 'pane'
     }
 ];
 

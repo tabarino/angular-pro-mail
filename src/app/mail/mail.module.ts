@@ -10,12 +10,14 @@ import { MailItemComponent } from './components/mail-item/mail-item.component';
 
 import { MailService } from './services/mail.service';
 import { MailFolderResolve } from './containers/mail-folder/mail-folder.resolve';
+import { MailViewComponent } from './components/mail-view/mail-view.component';
 
 @NgModule({
     declarations: [
         MailFolderComponent,
         MailAppComponent,
-        MailItemComponent
+        MailItemComponent,
+        MailViewComponent
     ],
     imports: [
         CommonModule,
