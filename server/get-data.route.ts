@@ -14,3 +14,11 @@ export function getMessages(req: Request, res: Response) {
         res.status(200).json({ payload: Object.values(MESSAGES) });
     }
 }
+
+export function getMessageById(req: Request, res: Response) {
+    const messageId = req.params.id;
+    const messages: any = Object.values(MESSAGES);
+    const message = messages.find(searchMessage => searchMessage.id == messageId);
+
+    res.status(200).json(message);
+}
