@@ -11,10 +11,27 @@ import { pluck } from 'rxjs/operators';
 })
 export class MailViewComponent implements OnInit {
     message$: Observable<Mail>;
+    reply = '';
+    hasUnsavedChanges = false;
 
     constructor(private route: ActivatedRoute) { }
 
     ngOnInit(): void {
         this.message$ = this.route.data.pipe(pluck('message'));
+        this.route.params.subscribe(() => {
+            this.reply = '';
+            this.hasUnsavedChanges = false;
+        });
+    }
+
+    updateReply(value: string) {
+        this.reply = value;
+        this.hasUnsavedChanges = true;
+    }
+
+    sendReply() {
+        console.log('Sent!', this.reply);
+        this.reply = '';
+        this.hasUnsavedChanges = false;
     }
 }

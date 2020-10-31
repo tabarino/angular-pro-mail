@@ -10,6 +10,7 @@ import { MailService } from './services/mail.service';
 import { MailFolderResolve } from './containers/mail-folder/mail-folder.resolve';
 import { MailViewComponent } from './components/mail-view/mail-view.component';
 import { MailViewResolve } from './components/mail-view/mail-view.resolve';
+import { MailViewGuard } from './components/mail-view/mail-view.guard';
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import { MailViewResolve } from './components/mail-view/mail-view.resolve';
     providers: [
         MailService,
         MailFolderResolve,
-        MailViewResolve
+        MailViewResolve,
+        MailViewGuard
     ]
 })
 export class MailModule {

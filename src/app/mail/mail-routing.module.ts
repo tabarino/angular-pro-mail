@@ -6,6 +6,7 @@ import { MailViewComponent } from './components/mail-view/mail-view.component';
 import { MailViewResolve } from './components/mail-view/mail-view.resolve';
 import { MailAppComponent } from './components/mail-app/mail-app.component';
 import { AuthGuard } from '../auth/auth.guard';
+import { MailViewGuard } from './components/mail-view/mail-view.guard';
 
 export const routes: Routes = [
     {
@@ -24,6 +25,7 @@ export const routes: Routes = [
                 path: 'message/:id',
                 component: MailViewComponent,
                 outlet: 'pane',
+                canDeactivate: [MailViewGuard],
                 resolve: {
                     message: MailViewResolve
                 }
