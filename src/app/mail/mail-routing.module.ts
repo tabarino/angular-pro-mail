@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { MailFolderComponent } from './containers/mail-folder/mail-folder.component';
 import { MailFolderResolve } from './containers/mail-folder/mail-folder.resolve';
 import { MailViewComponent } from './components/mail-view/mail-view.component';
 import { MailViewResolve } from './components/mail-view/mail-view.resolve';
 import { MailAppComponent } from './components/mail-app/mail-app.component';
+import { AuthGuard } from '../auth/auth.guard';
 
 export const routes: Routes = [
     {
         path: 'mail',
         component: MailAppComponent,
+        canActivate: [AuthGuard],
         children: [
             {
                 path: 'folder/:name',
