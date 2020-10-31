@@ -4,6 +4,7 @@ import { MailModule } from './mail/mail.module';
 import { AppRoutingModule, CustomPreload } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
     declarations: [
@@ -12,6 +13,7 @@ import { AppComponent } from './app.component';
     imports: [
         BrowserModule,
         MailModule,
+        AuthModule,
         AppRoutingModule
     ],
     providers: [
